@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Model files
+data/models/
+
+# Resources (large files)
+Resources/v3/*/*.4096/
+Resources/v3/*/*.moc3
+Resources/v3/*/*.model3.json
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Build files
+build/
+dist/
+*.egg-info/
