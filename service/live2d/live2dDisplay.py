@@ -36,10 +36,7 @@ class Live2DCanvas(QOpenGLWidget):
     def initializeGL(self):
         live2d.glInit()
         self.model = live2d.LAppModel()
-        if live2d.LIVE2D_VERSION == 3:
-            self.model.LoadModelJson(os.path.join(resources.RESOURCES_DIRECTORY, "v3", "YZL10/乐正绫10live2d.model3.json"))
-        else:
-            self.model.LoadModelJson(os.path.join(resources.RESOURCES_DIRECTORY, "v2", "kasumi2/kasumi2.model.json"))
+        self.model.LoadModelJson("Resources/v3/luotianyi/model0.model3.json")
         
         # 移除canvas创建，不再使用
 
@@ -51,16 +48,16 @@ class Live2DCanvas(QOpenGLWidget):
 
     def on_draw(self):
         live2d.clearBuffer()
-        self.model.Draw()
+        self.model.Draw() # type: ignore
 
     def paintGL(self):
-        self.model.Update()
+        self.model.Update() # type: ignore
         
         # 直接绘制，移除canvas使用
         self.on_draw()
 
     def resizeGL(self, width: int, height: int):
-        self.model.Resize(width, height)
+        self.model.Resize(width, height) # type: ignore
     
     def mousePressEvent(self, event):
         # 处理鼠标按下事件，开始拖动

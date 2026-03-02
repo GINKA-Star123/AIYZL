@@ -3,21 +3,20 @@ from webrtcvad import Vad
 import numpy as np
 import pyaudio
 import logging
-import os
 import torch
 import time
+
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from config import *
-from GPTSOVITS import *
-from CORE.AILLM import *
-from CORE.character import *
-from sutitle_window import *
-from CORE.memory import MemoryManager
-from CORE.CAG import *
+# 添加项目根目录到 Python 路径
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from service.TTS.GPTSOVITS import *
+from service.OBS.sutitle_window import *
 
-CAG = sentenceSimilarityTest()
+from agent.LLM.AILLM import *
+from character.character import *
+from memory.memory import MemoryManager
+
 class OptimizedASR:
     """
     OptimizedASR : 修复版流式语音识别系统
@@ -473,7 +472,7 @@ async def get_asr_instance():
 
                 LLM_text = await get_response(prompt = "活力十足的16岁女高中生，乐正集团的大小姐。个性活泼元气，一天中有很多时间都在跑来跑去。喜欢音乐和巨大的好捏的毛绒绒的东西。在自己组建的乐队中担当主唱、吉他，兼职作曲，与洛天依是很好的朋友，喜欢在一起玩耍、喜欢和天依一起唱歌。",text = msg)
                 TTS_text = await charactercag.apply_personal(user_input= msg , LLM_input= LLM_text)
-                CAG.add(msg,TTS_text)
+                #CAG.add(msg,TTS_text)
                 print(msg,TTS_text)
                 #打印输出
                 print (TTS_text)

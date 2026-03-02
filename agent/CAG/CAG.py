@@ -18,7 +18,7 @@ class sentenceSimilarityTest:
         # === 1.初始化 ====
 
         self.encoder = SentenceTransformer(model)
-        self.encoder.max_sequence_length = 128  #限制长度加速计算
+        self.encoder.max_sequence_length = 128  # type: ignore #限制长度加速计算
 
 
         # === 2.faiss索引 ====

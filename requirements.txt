@@ -1,10 +1,53 @@
-# 项目依赖包
+# AIYZL - 智能 Live2D 虚拟主播系统依赖包
+
+# ===== 核心依赖 =====
 numpy==2.4.2
-faiss-cpu==1.13.2
-sentence-transformers==3.2.0
-torch==2.1.0
+scipy==1.14.1
+
+# ===== 语音处理 =====
 faster-whisper==1.0.1
 webrtcvad==2.0.10
 pyaudio==0.2.14
+
+# ===== 自然语言处理 =====
+sentence-transformers==3.2.0
+transformers==4.46.2
+langchain==0.2.17
+langchain-text-splitters==0.2.2
+langchain-community==0.2.15
+
+# ===== 深度学习 =====
+torch==2.1.0
+
+# ===== 向量检索 =====
+faiss-cpu==1.13.2
+
+# ===== GUI 界面 =====
 PyQt5==5.15.10
+
+# ===== Live2D 渲染 =====
 live2d-py==0.1.0
+
+# ===== 网络通信 =====
+websockets==12.0
+requests==2.32.3
+aiohttp==3.10.5
+
+# ===== 音频处理 =====
+pygame==2.6.1
+
+# ===== 图像处理 =====
+pillow==11.2.0
+
+# ===== 工具库 =====
+python-dotenv==1.0.0
+
+# ===== AI 服务 =====
+openai==1.54.0
+
+# ===== 直播平台 =====
+bilibili-api==1.21.0
+
+# ===== 版本锁定建议 =====
+# 以下版本基于 Python 3.13 兼容性测试
+# 如需在其他 Python 版本使用，请调整相应依赖版本

@@ -1,6 +1,6 @@
 import os
-from CORE.AILLM import *
-from CORE.memory import MemoryManager
+from agent.LLM.AILLM import *
+from memory.memory import MemoryManager
 class characterCAG:
     """
     characterCAG : 人格预设

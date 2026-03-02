@@ -1,11 +1,13 @@
+import time
 import aiohttp
 import pygame
 import queue
 import threading
 import uuid
 import re
-from sutitle_window import *
+from service.OBS.sutitle_window import *
 import requests
+import logging
 
 def clean_text(text):
     # 去掉各种括号内容
@@ -53,7 +55,6 @@ def split_text_streaming(text, max_length=60):
 
 
 url = "http://127.0.0.1:9880/tts"
-obs_url = 'http://127.0.0.1:7888/alive'
 
 pygame.mixer.init()
 audio_queue = queue.Queue()
@@ -70,15 +71,15 @@ def player_worker():
             "speech_path": rf"F:\AIYZL\{audio_path}" # 修改为你的语音音频路径
         }
         print(audio_path)
-        res = requests.post(url=obs_url,json =data)
-        #logging.info(f"正在播放: {subtitle}")
-        #pygame.mixer.music.load(audio_path)
-        #pygame.mixer.music.play()
+        res = requests.post(url=url,json =data)
+        logging.info(f"正在播放: {subtitle}")
+        pygame.mixer.music.load(audio_path)
+        pygame.mixer.music.play()
         
-        # 等待播放完
-        #while pygame.mixer.music.get_busy():
-            #time.sleep(0.01)
-        #time.sleep(0.3)  # 播放间隔
+        #等待播放完
+        while pygame.mixer.music.get_busy():
+            time.sleep(0.01)
+        time.sleep(0.3)  # 播放间隔
 
 threading.Thread(target=player_worker, daemon=True).start()
 
