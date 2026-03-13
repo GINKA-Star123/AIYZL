@@ -28,13 +28,9 @@ AIYZL 是一个集成了语音识别、智能对话、语音合成和 Live2D 模
 
 ```
 AIYZL/
-├── Resources/          # Live2D 模型资源
-│   └── v3/
-│       └── YZL10/      # 乐正绫模型文件
 ├── agent/              # 智能代理模块
 │   ├── CAG/            # 语义相似度缓存系统
 │   ├── LLM/            # 大语言模型接口
-│   └── RAG/            # 检索增强生成
 ├── ai-streamer-chat/   # 聊天系统
 ├── character/          # 角色管理
 ├── knowledge/          # 知识库
